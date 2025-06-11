@@ -1,0 +1,7 @@
+vendor/
+wp-content/themes/twentytwenty*
+wp-content/themes/base-theme/node_modules/
+wp-content/themes/base-theme/dist/
+wp-admin/
+wp-includes/
+.vscode/

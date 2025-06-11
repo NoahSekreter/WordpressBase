@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{ site.title }}</title>
+    {{ function('wp_head') }}
+    <style>
+      :root {
+        --color-primary: {{ theme_settings.color_primary }};
+        --color-secondary: {{ theme_settings.color_secondary }};
+        --color-tertiary: {{ theme_settings.color_tertiary }};
+        --color-body: {{ theme_settings.color_body ?? '#fff' }};
+        --text-primary: {{ theme_settings.text_primary }};
+        --text-secondary: {{ theme_settings.text_secondary }};
+        --text-body: {{ theme_settings.text_body ?? '#000' }};
+        --font-size-base: {{ theme_settings.font_size_base ?? '16px' }};
+      }
+    </style>
+  </head>
+  <body>
+    {% include 'header/header.twig' with {
+      variant: theme_settings.header_variant,
+      menu_variant: theme_settings.menu_variant,
+      logo: theme_settings.logo,
+      tagline: 'This is the tagline'
+    } %}
+
+    <main data-component="{{ post_type }}">
+      {% block content %}
+      {% endblock %}
+    </main>
+
+    {{ function('wp_footer') }}
+    {% include 'footer/footer.twig' %}
+  </body>
+</html>

@@ -1,0 +1,32 @@
+<nav class="nav nav--{{ variant|default('default') }}" data-component="nav">
+  <ul>
+    {% for item in menu_primary.items %}
+      <li class="nav__primary-item {{ item.classes|join(' ') }}">
+        <a class="nav__primary-link" href="{{ item.link }}">{{ item.title }}</a>
+
+        {% if item.children %}
+          <ul class="nav__secondary-menu">
+            {% for child_secondary in item.children %}
+              <li class="nav__secondary-item">
+                <a class="nav__secondary-link" href="{{ child_secondary.link }}">{{ child_secondary.title }}</a>
+
+                {% if child_secondary.children %}
+                  <ul class="nav__tertiary-menu">
+                    {% for child_tertiary in child_secondary.children %}
+                      <li class="nav__tertiary-item">
+                        <a class="nav__tertiary-link" href="{{ child_tertiary.link }}">{{ child_tertiary.title }}</a>
+                      </li>
+                    {% endfor %}
+                  </ul>
+                {% endif %}
+
+              </li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+
+      </li>
+    {% endfor %}
+  </ul>
+</nav>
+

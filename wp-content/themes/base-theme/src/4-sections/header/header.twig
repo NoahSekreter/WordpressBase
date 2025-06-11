@@ -1,0 +1,11 @@
+<header class="header header--{{ variant|default('default') }}" data-component="header">
+  <div class="header__content">
+    <img class="header__logo" src="{{ logo }}" alt="Logo alt" />
+    {% if tagline %}
+      <span>{{ tagline }}</span>
+    {% endif %}
+    {% include 'nav/nav.twig' with {
+      variant: menu_variant
+    } %}
+  </div>
+</header>

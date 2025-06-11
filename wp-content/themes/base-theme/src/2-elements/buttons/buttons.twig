@@ -1,0 +1,17 @@
+<div class="buttons js-buttons" data-component="buttons">
+  {% for button in buttons %}
+    {% if button.url %}
+      <a
+        class="button button--{{ button.variant|default('default') }}"
+        href={{ button.url }}
+        {{ button.target ? (' rel=“noreferrer” target="' ~ button.target ~ '"') }}>
+        {{ button.text }}
+      </a>
+    {% else %}
+      <button
+        class="button button--{{ button.variant|default('default') }}">
+        {{ button.text }}
+      </button>
+    {% endif %}
+  {% endfor %}
+</div>

@@ -1,0 +1,12 @@
+@use './../../1-global/utils' as *;
+
+footer {
+  @include container;
+  @include bleeding-bg(var(--color-primary));
+
+  & {
+    color: var(--text-primary);
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
+}

@@ -1,0 +1,54 @@
+@use './../../1-global/utils' as *;
+
+.hero {
+  @include container;
+  @include bleeding-bg(var(--color-secondary));
+
+  & {
+    color: var(--text-primary);
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-between;
+
+    @include tablet-up {
+      flex-direction: row;
+    }
+  }
+
+  &__content {
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
+
+  &__subtitle {
+    @include h4;
+
+    & {
+      color: var(--text-secondary);
+      margin-bottom: 16px;
+    }
+  }
+
+  &--image-bg {
+    position: relative;
+    padding: 0;
+
+    &::before {
+      display: none;
+    }
+
+    .hero__content {
+      width: 100%;
+      text-align: center;
+      position: absolute;
+      bottom: 0;
+      background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.7) 50%);
+      padding-top: 40px;
+    }
+
+    .hero__image {
+      width: 100%;
+      aspect-ratio: 2/1;
+    }
+  }
+}

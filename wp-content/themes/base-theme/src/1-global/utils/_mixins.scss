@@ -1,0 +1,94 @@
+@use './_variables.scss' as *;
+
+// Screen size mixins
+@mixin desktop-up {
+  @media screen and (min-width: $content-desktop) {
+    @content;
+  }
+}
+
+@mixin tablet-up {
+  @media screen and (min-width: $content-tablet) {
+    @content;
+  }
+}
+
+// Font mixins
+@mixin h1 {
+  font-size: $font-size-h2;
+  line-height: 1.5;
+
+  @include tablet-up {
+    font-size: $font-size-h1;
+  }
+}
+
+@mixin h2 {
+  font-size: $font-size-h3;
+  line-height: 1.5;
+
+  @include tablet-up {
+    font-size: $font-size-h2;
+  }
+}
+
+@mixin h3 {
+  font-size: $font-size-h4;
+  line-height: 1.5;
+
+  @include tablet-up {
+    font-size: $font-size-h3;
+  }
+}
+
+@mixin h4 {
+  font-size: $font-size-h5;
+  line-height: 1.5;
+
+  @include tablet-up {
+    font-size: $font-size-h4;
+  }
+}
+
+@mixin h5 {
+  font-size: $font-size-h6;
+  line-height: 1.5;
+
+  @include tablet-up {
+    font-size: $font-size-h5;
+  }
+}
+
+// Content container mixins
+@mixin container {
+  & {
+    max-width: $content-desktop-xl;
+    margin: 0 auto;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  @include desktop-up {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+}
+
+// Other mixins
+@mixin bleeding-bg($color) {
+  & {
+    position: relative;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    background: $color;
+    width: 100vw;
+    height: 100%;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: -1;
+  }
+}

@@ -1,0 +1,17 @@
+<div
+  data-component="cards"
+  class="cards cards--{{ variant|default('default') }}"
+  style="gap: {{ gap|default('8px') }};">
+  {% for card in cards %}
+    {% include 'card/card.twig' with {
+      variant: card.variant,
+      title: card.title,
+      subtitle: card.subtitle,
+      content: card.content,
+      color: card.color,
+      backgroundColor: card.backgroundColor,
+      coverColor: card.coverColor,
+      coverBackgroundColor: card.coverBackgroundColor
+    } %}
+  {% endfor %}
+</div>

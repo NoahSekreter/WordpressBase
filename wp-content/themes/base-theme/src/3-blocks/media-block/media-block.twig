@@ -1,0 +1,10 @@
+<div class="media-block js-media-block" data-component="media-block">
+  {% if image %}
+    <img src="{{ image.url }}" alt="{{ image.alt }}">
+  {% endif %}
+  {% if video %}
+    <video controls>
+      <source src="{{ video.url }}" type="video/mp4">
+    </video>
+  {% endif %}
+</div>

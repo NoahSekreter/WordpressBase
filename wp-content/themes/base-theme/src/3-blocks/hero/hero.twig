@@ -1,0 +1,14 @@
+<div class="hero hero--{{ variant|default('default') }}" data-component="hero">
+  <div class="hero__content">
+    <h1 class="hero__title">{{ title }}</h1>
+    {% if subtitle %}
+      <div class="hero__subtitle">{{ subtitle }}</div>
+    {% endif %}
+    {% if buttons %}
+      {% include 'buttons/buttons.twig' with { buttons: buttons } %}
+    {% endif %}
+  </div>
+  {% if image %}
+    <img class="hero__image" src="{{ image.url }}" alt="{{ image.alt }}" />
+  {% endif %}
+</div>

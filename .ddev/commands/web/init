@@ -1,0 +1,15 @@
+#!/bin/bash
+
+## Description: Installs Wordpress, Composer plugins, activates and builds themes
+## Usage: ddev init
+
+echo "Installing Wordpress..."
+
+echo "Installing Composer plugins"
+composer install
+
+echo "Activating theme"
+wp theme activate base-theme
+
+cd wp-content/themes/base-theme
+npm install

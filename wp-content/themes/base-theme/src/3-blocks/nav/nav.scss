@@ -1,0 +1,79 @@
+@use './../../1-global/utils' as *;
+
+.nav {
+  > ul {
+    list-style: none;
+    display: flex;
+    gap: 8px;
+    padding: 0;
+  }
+
+  a {
+    color: var(--text-primary);
+    text-decoration: none;
+  }
+
+  &__primary-item {
+    position: relative;
+
+    &:last-of-type {
+      .nav__secondary-menu {
+        left: auto;
+        right: 0;
+      }
+    }
+
+    &.menu-item-has-children {
+      > a::after {
+        content: '+';
+        color: inherit;
+        margin-left: 4px;
+      }
+    }
+
+    &.open {
+      > a::after {
+        content: '-';
+      }
+
+      .nav__secondary-menu {
+        display: flex;
+      }
+    }
+  }
+
+  &__secondary-menu {
+    display: none;
+    position: absolute;
+    top: 32px;
+    left: 0;
+    list-style: none;
+    width: max-content;
+    padding: 16px;
+    flex-direction: column;
+    gap: 8px;
+    background-color: var(--color-secondary);
+  }
+
+  &__secondary-item {
+    width: 100%;
+  }
+
+  &__tertiary-menu {
+    list-style: none;
+    padding: 0;
+  }
+
+  &--mega-menu {
+    .nav__primary-item {
+      position: initial;
+    }
+
+    .nav__secondary-menu {
+      width: 100%;
+      top: 48px;
+      left: 0;
+      right: auto;
+    }
+  }
+}

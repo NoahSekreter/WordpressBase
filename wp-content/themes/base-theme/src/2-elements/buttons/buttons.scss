@@ -1,0 +1,44 @@
+@use './../../1-global/utils' as *;
+
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+
+  .button {
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    width: fit-content;
+    background-color: var(--text-primary);
+    border: 2px solid var(--color-primary);
+    color: var(--color-primary);
+    padding: 12px;
+    box-shadow: none;
+    transition: all 0.2s;
+    text-transform: uppercase;
+    font-size: $font-size-body;
+    font-weight: 600;
+    line-height: 1;
+
+    &:hover,
+    &:focus {
+      background-color: var(--color-primary);
+      border: 2px solid var(--text-primary);
+      color: var(--text-primary);
+    }
+
+    &--primary {
+      background-color: var(--color-primary);
+      border: 2px solid var(--text-primary);
+      color: var(--text-primary);
+
+      &:hover,
+      &:focus {
+        background-color: var(--text-primary);
+        border: 2px solid var(--color-primary);
+        color: var(--color-primary);
+      }
+    }
+  }
+}

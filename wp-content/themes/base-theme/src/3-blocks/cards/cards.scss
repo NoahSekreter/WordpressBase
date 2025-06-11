@@ -1,0 +1,12 @@
+@use './../../1-global/utils' as *;
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+
+  .card {
+    min-width: 350px;
+    flex-basis: 33.3333%;
+    flex-grow: 1;
+  }
+}

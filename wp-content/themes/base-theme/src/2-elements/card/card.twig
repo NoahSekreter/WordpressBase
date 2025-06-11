@@ -1,0 +1,22 @@
+<div
+  class="card card--{{ variant|default('default') }}"
+  style="background-color: {{ backgroundColor|default('var(--color-secondary)') }}; color: {{ color|default('var(--text-secondary)') }};"
+  data-component="card">
+  {% if variant == 'cover' %}
+    <button class='card__cover' style="background-color: {{ coverBackgroundColor|default('var(--color-primary)') }}; color: {{ coverColor|default('var(--text-primary)') }};">
+      <div class='card__heading'>
+        <div class='card__title h3'>{{ title }}</div>
+        <div class='card__subtitle'>{{ subtitle }}</div>
+      </div>
+      <div class='card__icon'>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/></svg>
+      </div>
+    </button>
+  {% else %}
+    <div class='card__title h3'>{{ title }}</div>
+    <div class='card__subtitle'>{{ subtitle }}</div>
+  {% endif %}
+  <div class='card__content'>
+    {{ content }}
+  </div>
+</div>

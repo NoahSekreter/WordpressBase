@@ -1,0 +1,17 @@
+{% extends 'base.twig' %}
+
+{% block content %}
+  {% include 'hero/hero.twig' with {
+    title: post.title,
+    buttons: [
+      {
+        variant: 'primary',
+        text: 'Return Home',
+        url: '/',
+      }
+    ]
+  } %}
+  {% include 'content/content.twig' with {
+    content: post.content
+  } %}
+{% endblock %}

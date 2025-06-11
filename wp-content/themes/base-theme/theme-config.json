@@ -1,0 +1,13 @@
+{
+  "color_primary": "#000814",
+  "color_secondary": "#001d3d",
+  "color_tertiary": "#003566",
+  "color_body": "var(--color-primary)",
+  "text_primary": "#ffc300",
+  "text_secondary": "#ffe62a",
+  "text_body": "var(--text-primary)",
+  "font_size_base": "16px",
+  "logo": "",
+  "header_variant": "sticky",
+  "menu_variant": "mega-menu"
+}

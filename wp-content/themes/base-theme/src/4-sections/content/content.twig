@@ -1,0 +1,53 @@
+<div class="content" data-component="content">
+  {{ content }}
+
+  {% include 'cards/cards.twig' with {
+    cards: [
+      {
+        title: 'Sample card 1!',
+        content: 'Card text!',
+        backgroundColor: 'var(--color-primary)',
+        color: '#fff'
+      },
+      {
+        variant: 'cover',
+        title: 'Sample card 2!',
+        content: 'Card text 2!',
+      },
+      {
+        variant: 'cover',
+        title: 'Sample card 3!',
+        subtitle: 'This is a subtitle',
+        content: 'Card text! Lorem sadf sadfposadf oisadjf isandf iln flkrew glrnsrdjk',
+        backgroundColor: 'var(--color-tertiary)',
+        color: 'var(--text-secondary)'
+      },
+    ]
+  } %}
+
+  {% include 'buttons/buttons.twig' with {
+    buttons: [
+      {
+        text: 'Button 1',
+        variant: 'primary'
+      },
+      {
+        text: 'Button 2',
+        variant: 'default'
+      }
+    ]
+  } %}
+
+  {% include 'media-block/media-block.twig' with {
+    image: {
+      url: 'https://placehold.co/600x400',
+      alt: 'Placeholder Image'
+    }
+  } %}
+
+  {% include 'card/card.twig' with {
+    title: 'Sample card!',
+    content: 'Card text!',
+    variant: 'cover'
+  } %}
+</div>
