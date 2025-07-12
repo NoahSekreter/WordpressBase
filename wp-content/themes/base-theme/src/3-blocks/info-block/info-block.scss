@@ -1,0 +1,14 @@
+@use './../../1-global/utils' as *;
+
+.info-block {
+  @include container;
+  @include bleeding-bg(var(--color-secondary));
+
+  .info-block__info {
+    background-color: white;
+    color: black;
+    padding: 16px;
+    border: 1px solid black;
+    border-radius: 16px;
+  }
+}

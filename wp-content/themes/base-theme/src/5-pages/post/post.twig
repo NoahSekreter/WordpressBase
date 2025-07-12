@@ -3,6 +3,10 @@
 {% block content %}
   {% include 'hero/hero.twig' with {
     title: post.title,
+    image: {
+      url: 'https://imgs.search.brave.com/n3WVCfgWaYWSYkNZwGvzNEDXhC-B3CuhGRFlwtO7dh8/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9idXJz/dC5zaG9waWZ5Y2Ru/LmNvbS9waG90b3Mv/c3Rvcm0tY2xvdWRz/LWZyb20tYWJvdmUu/anBnP3dpZHRoPTEw/MDAmZm9ybWF0PXBq/cGcmZXhpZj0wJmlw/dGM9MA',
+      alt: 'Placeholder Image'
+    },
     buttons: [
       {
         variant: 'primary',

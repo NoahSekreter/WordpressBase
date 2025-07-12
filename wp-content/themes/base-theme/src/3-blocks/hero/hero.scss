@@ -29,6 +29,23 @@
     }
   }
 
+  &--default {
+    padding-left: 0;
+    padding-right: 0;
+
+    .hero__content,
+    .hero__image {
+      flex-basis: 50%;
+      width: 50%;
+      flex-grow: 1;
+    }
+
+    .hero__content {
+      padding-left: 16px;
+      padding-right: 16px;
+    }
+  }
+
   &--image-bg {
     position: relative;
     padding: 0;
