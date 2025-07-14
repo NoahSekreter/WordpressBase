@@ -68,35 +68,54 @@ add_filter('timber/context', function ($context) {
   return $context;
 });
 
+function base_theme_get_manifest_entry($file) {
+  $manifest_path = get_template_directory() . '/dist/manifest.json';
+  if (!file_exists($manifest_path)) return false;
 
-// function enqueue_component_assets(array $components) {
-//   global $manifest, $dist_uri;
+  $manifest = json_decode(file_get_contents($manifest_path), true);
+  
+  return $manifest[$file] ?? false;
+}
 
-//   foreach ($components as $component) {
-//     $js = "$component.js";
-//     $css = "$component.css";
+add_action('enqueue_block_editor_assets', function () {
+  $editor_js = base_theme_get_manifest_entry('editor.js');
 
-//     if (isset($manifest[$js])) {
-//       wp_enqueue_script("component-$component-js", "$dist_uri/{$manifest[$js]}", [], null, true);
-//     }
+  if ($editor_js) {
+    wp_enqueue_script(
+      'base-theme-blocks-editor',
+      get_template_directory_uri() . '/dist/' . $editor_js,
+      ['wp-blocks', 'wp-element', 'wp-editor'],
+      null,
+      true
+    );
+  }
+});
 
-//     if (isset($manifest[$css])) {
-//       wp_enqueue_style("component-$component-css", "$dist_uri/{$manifest[$css]}", [], null);
-//     }
-//   }
-// }
+add_action('init', function () {
+  register_block_type('base-theme/cards', [
+    'render_callback' => function ($attributes, $content) {
+      return Timber::compile('3-blocks/cards/cards.twig', [
+        'attributes' => $attributes,
+        'content' => $content,
+      ]);
+    }
+  ]);
 
-// function enqueue_component_styles_from_html($html) {
-//   global $manifest, $dist_uri;
+  register_block_type('base-theme/icon-display', [
+    'render_callback' => function ($attributes, $content) {
+      return Timber::compile('3-blocks/icon-display/icon-display.twig', [
+        'attributes' => $attributes,
+        'content' => $content,
+      ]);
+    }
+  ]);
 
-//   preg_match_all('/data-component=["\']([^"\']+)["\']/', $html, $matches);
-//   $components = array_unique($matches[1]);
-
-//   foreach ($components as $component) {
-//     $style_key = "{$component}-style.css";
-//     if (isset($manifest[$style_key])) {
-//       wp_enqueue_style("theme-{$component}-css", $dist_uri . '/' . $manifest[$style_key]);
-//     }
-//   }
-// }
-
+  register_block_type('base-theme/info-block', [
+    'render_callback' => function ($attributes, $content) {
+      return Timber::compile('3-blocks/info-block/info-block.twig', [
+        'attributes' => $attributes,
+        'content' => $content,
+      ]);
+    }
+  ]);
+});

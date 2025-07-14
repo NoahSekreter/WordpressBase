@@ -7,6 +7,7 @@ module.exports = {
   entry: {
     base: './src/base.tsx',
     'base-style': './src/1-global/global.scss',
+    'editor': './src/3-blocks/editor.ts',
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -48,5 +49,11 @@ module.exports = {
     }),
     new WebpackManifestPlugin({ fileName: 'manifest.json', publicPath: '' })
   ],
+  externals: {
+    '@wordpress/blocks': ['wp', 'blocks'],
+    '@wordpress/element': ['wp', 'element'],
+    '@wordpress/editor': ['wp', 'editor'],
+    '@wordpress/components': ['wp', 'components'],
+  },
   mode: 'development',
 };
