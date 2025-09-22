@@ -10,7 +10,7 @@ registerBlockType('base-theme/info-block', {
   icon: 'info',
   category: 'common',
   edit: () => {
-    return createElement('p', null, 'Cards block in editor');
+    return createElement('p', null, 'Info block in editor');
   },
   save: () => null, // Dynamic Twig block
 });

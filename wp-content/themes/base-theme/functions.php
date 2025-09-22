@@ -33,6 +33,23 @@ function enqueue_template_assets($template = 'base') {
 }
 add_action('wp_enqueue_scripts', function() { enqueue_template_assets(); });
 
+// Establish theme blocks
+add_action('init', function () {
+  $blocks = glob(get_template_directory() . '/src/3-blocks/*', GLOB_ONLYDIR);
+
+  foreach ($blocks as $blockDir) {
+    $name = basename($blockDir);
+    register_block_type('base-theme/' . $name, [
+      'render_callback' => function ($attributes, $content) use ($name) {
+        return Timber::compile('3-blocks/' . $name . '/' . $name . '.twig', [
+          'attributes' => $attributes,
+          'content' => $content,
+        ]);
+      }
+    ]);
+  }
+});
+
 // Establish theme menus
 add_action('after_setup_theme', function () {
   register_nav_menus([
@@ -89,33 +106,4 @@ add_action('enqueue_block_editor_assets', function () {
       true
     );
   }
-});
-
-add_action('init', function () {
-  register_block_type('base-theme/cards', [
-    'render_callback' => function ($attributes, $content) {
-      return Timber::compile('3-blocks/cards/cards.twig', [
-        'attributes' => $attributes,
-        'content' => $content,
-      ]);
-    }
-  ]);
-
-  register_block_type('base-theme/icon-display', [
-    'render_callback' => function ($attributes, $content) {
-      return Timber::compile('3-blocks/icon-display/icon-display.twig', [
-        'attributes' => $attributes,
-        'content' => $content,
-      ]);
-    }
-  ]);
-
-  register_block_type('base-theme/info-block', [
-    'render_callback' => function ($attributes, $content) {
-      return Timber::compile('3-blocks/info-block/info-block.twig', [
-        'attributes' => $attributes,
-        'content' => $content,
-      ]);
-    }
-  ]);
 });

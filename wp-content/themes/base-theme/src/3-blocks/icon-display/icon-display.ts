@@ -10,7 +10,7 @@ registerBlockType('base-theme/icon-display', {
   icon: 'image-filter',
   category: 'common',
   edit: () => {
-    return createElement('p', null, 'Cards block in editor');
+    return createElement('p', null, 'Icon Display in editor');
   },
   save: () => null, // Dynamic Twig block
 });

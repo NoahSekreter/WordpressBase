@@ -54,6 +54,8 @@ module.exports = {
     '@wordpress/element': ['wp', 'element'],
     '@wordpress/editor': ['wp', 'editor'],
     '@wordpress/components': ['wp', 'components'],
+    react: 'React',
+    'react-dom': 'ReactDOM',
   },
   mode: 'development',
 };
