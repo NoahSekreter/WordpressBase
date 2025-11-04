@@ -24,7 +24,7 @@
       tagline: 'This is the tagline'
     } %}
 
-    <main data-component="{{ post_type }}">
+    <main data-component="{{ post_type }}" class="theme--{{ theme_settings.theme_style }}">
       {% block content %}
       {% endblock %}
     </main>
