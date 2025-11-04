@@ -1,3 +1,10 @@
+// Import all global styles here
+// import './1-global/global.scss';
+// import './3-blocks/nav/nav.scss';
+// import './3-blocks/media-block/media-block.scss';
+// import './3-blocks/hero/hero.scss';
+// import './3-blocks/cards/cards.scss';
+
 // Establish array of folders to search for components
 const componentFolders = [
   '2-elements',
