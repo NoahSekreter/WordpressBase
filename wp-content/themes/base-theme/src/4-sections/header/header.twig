@@ -1,6 +1,8 @@
 <header class="header header--{{ variant|default('default') }}" data-component="header">
   <div class="header__content">
-    <img class="header__logo" src="{{ logo }}" alt="Logo alt" />
+    <a href="/" class="header__home-link">
+      <img class="header__logo" src="{{ logo }}" alt="Logo alt" />
+    </a>
     {% if tagline %}
       <span>{{ tagline }}</span>
     {% endif %}

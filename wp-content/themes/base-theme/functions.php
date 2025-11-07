@@ -79,7 +79,9 @@ add_filter('timber/context', function ($context) {
   $context['site'] = Timber::context()['site']; // Ensure site context is included
   $context['current_user'] = wp_get_current_user();
 
-  $context['menu_primary'] = Timber::get_menu('menu--primary', [ 'depth' => 3 ]);
+  // TODO The current menu is from the Theme Unit Test data, replace it when
+  // building a real menu
+  $context['menu_primary'] = Timber::get_menu('testing--menu', [ 'depth' => 3 ]);
   $context['menu_footer'] = Timber::get_menu('menu--footer');
 
   return $context;

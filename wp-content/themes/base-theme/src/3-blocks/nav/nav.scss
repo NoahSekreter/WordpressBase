@@ -37,22 +37,34 @@
       }
 
       .nav__secondary-menu {
-        display: flex;
+        height: fit-content;
+        padding: 16px;
+
+        > * {
+          display: flex;
+        }
       }
     }
   }
 
   &__secondary-menu {
-    display: none;
+    display: flex;
     position: absolute;
+    overflow: hidden;
     top: 32px;
     left: 0;
     list-style: none;
     width: max-content;
-    padding: 16px;
+    padding: 0 16px;
     flex-direction: column;
     gap: 8px;
     background-color: var(--color-secondary);
+    transition: all 0.3s ease;
+    height: 0;
+
+    > * {
+      display: none;
+    }
   }
 
   &__secondary-item {
